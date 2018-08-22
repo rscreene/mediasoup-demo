@@ -1,6 +1,6 @@
 module.exports = {
   // Listening hostname for `gulp live|open`.
-  domain: "localhost",
+  domain: process.env.HOSTNAME.replace(/-/g, "."),
   tls: {
     cert: `${__dirname}/certs/mediasoup-demo.localhost.cert.pem`,
     key: `${__dirname}/certs/mediasoup-demo.localhost.key.pem`
@@ -9,7 +9,7 @@ module.exports = {
     // mediasoup Server settings.
     logLevel: "warn",
     logTags: ["info", "ice", "dtls", "rtp", "srtp", "rtcp", "rbe", "rtx"],
-    rtcIPv4: true,
+    rtcIPv4: process.env.HOSTNAME.replace(/-/g, "."),
     rtcIPv6: true,
     rtcAnnouncedIPv4: null,
     rtcAnnouncedIPv6: null,
