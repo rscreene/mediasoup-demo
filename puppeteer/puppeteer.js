@@ -14,7 +14,8 @@ const ROOM_ID = process.env.ROOM_ID || "ROOM1";
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--ignore-certificate-errors"
-    ]
+    ],
+    ignoreHTTPSErrors: true
   });
 
   const page = await browser.newPage();

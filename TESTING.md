@@ -25,7 +25,6 @@ docker build .
 Run client:
 
 ```
-export ROOM_ID=<name of room>
-export APP_ADDRESS=<external address output by server>
-docker run <client imageId>
+docker run --net host --interactive  --cap-add=SYS_ADMIN --env ROOM_ID=ROOM1 --env APP_ADDRESS=192.168.47.106:3000 \
+  <client imageId> node /puppeteer.js
 ```
